@@ -1,5 +1,4 @@
-import sys
-import multiprocessing
+import sys,os
 import numpy as np
 from multiprocessing import Pool
 from util import readFilelist,combineDict,exeCommand_multi,exeCommand
@@ -8,7 +7,6 @@ from collections import defaultdict
 from genKmersparsematrix import genKmersparsematrix
 from infofile import getKMERNUM
 from Bio.SeqIO.FastaIO import SimpleFastaParser
-from Bio import SeqIO
 
 def gensplitBarcodeCommandlist(datadir,bamfile,outBarcodedir,filelist):
     commandlist=[]
@@ -317,7 +315,7 @@ def genSRRfastafile(args):
         for (name, seq) in fastapair:
             output.write('>' + name + '\n')
             output.write(seq + '\n')
-import os
+
 def renamefasta(subfiles, fastadir):
     newbarcodelist=barcodelistTrim(subfiles)
     for barcode in newbarcodelist:
@@ -366,15 +364,11 @@ def prorandomsel(filename):
     return filelist
 
 
-originfiles={'COVID1C':'SRR11680207','PBMC16':'','PBMCtest':'','COVIDC4':'SRR11680216','COVIDC2':'SRR11680208',
-             'COVIDN2': 'SRR11680219','PBMC':'','COVIDF4':'SRR11680213','COVIDF2':'SRR11680210','COVIDN4':'SRR11680225'}
+originfiles={'COVID1C':'SRR11680207','PBMC16':'','PBMCtest':'','PBMC':'','COVIDF2':'SRR11680210','COVIDN4':'SRR11680225'}
 barcodefiles={'PBMC':'barcodes.tsv','PBMC16':'barcodes.tsv',
              'COVID1C':'count_w_metadata.C1.barcode.tsv','PBMCtest':'',
-              'COVIDN2': 'count_w_metadata.N2.barcode.tsv',
-              'COVIDF4':'count_w_metadata.F4.barcode.tsv',
               'COVIDN4':'count_w_metadata.N4.barcode.tsv',
-              'COVIDF2':'count_w_metadata.F2.barcode.tsv',
-              'COVIDC2':'count_w_metadata.C2.barcode.tsv'}
+              'COVIDF2':'count_w_metadata.F2.barcode.tsv'}
 
 def main(step,dir,taskdir,datatype,nodenum,docNum,coreNum):
     datadir=taskdir+'/data/'
@@ -413,8 +407,6 @@ def main(step,dir,taskdir,datatype,nodenum,docNum,coreNum):
     print('number of subsets: '+str(len(subfilelist)))
     subfiles=subfilelist[docNum]
     print('number of barcodes in subsets: '+str(len(subfiles)))
-
-    #taskdir='/scratch/qsu226/PBMC16'#generate 16-mer
 
     if step=='genbcqname':
         bcqnamefile=datadir+bamfile+'.namebarcode'
@@ -466,7 +458,6 @@ def main(step,dir,taskdir,datatype,nodenum,docNum,coreNum):
 
 if __name__ == "__main__":
     # execute only if run as a script
-    #TASKDIR = 'PBMCtest'
     TASKDIR='PBMCtest'
     patient='C2'
     dir= 'AAAA'

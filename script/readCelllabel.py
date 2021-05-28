@@ -40,7 +40,7 @@ def getTrainsamplelabel(task,infile, flag):
     f = open(infile)
     sampleLabel = {}
     for line in f:
-        if task=='PBMC' or task=='PBMC68k' or task=='COVIDN2':
+        if task=='PBMC' or task=='COVIDN2':
             infile,label=line.strip().split(',')
             label=label.replace(' ', '_')
             sampleLabel[infile] = label
@@ -57,7 +57,7 @@ def getIntratestsamplelabel(task,label2id, infile):
     f = open(infile)
     sampleLabel = {}
     for line in f:
-        if task=='PBMC' or task=='PBMC68k' or task=='COVIDN2':
+        if task=='PBMC' or task=='COVIDN2':
             infile,label=line.strip().split(',')
             label = label.replace(' ', '_')
             sampleLabel[infile] =label2id[label]
@@ -82,7 +82,7 @@ def getIntertestsamplelabel(task,label2id, infile):
     f = open(infile)
     sampleLabel = {}
     for line in f:
-        if task == 'PBMC' or task == 'PBMC68k' or task == 'COVIDN2':
+        if task == 'PBMC' or task == 'COVIDN2':
             infile, label = line.strip().split(',')
             label = label.replace(' ', '_')
             sampleLabel[infile] = label2id[label]
@@ -108,12 +108,6 @@ def getIntraLabelRandom(task,random, fold):
         task='PBMC'
         METADATA_TRAIN = dirinfo + task + '/sharefiles/Cells_labelName_Seurat_random' + str(random) + '_train' + str(fold) + '.txt'
         METADATA_TEST = dirinfo + task + '/sharefiles/Cells_labelName_Seurat_random' + str(random) + '_test' + str(fold) + '.txt'
-    elif task=='PBMC68k':
-
-        METADATA_TRAIN = dirinfo + task + '/sharefiles/tenthbarcode_random' + str(random) + '_train' + str(
-            fold) + '.txt'
-        METADATA_TEST = dirinfo + task + '/sharefiles/tenthbarcode_random' + str(random) + '_test' + str(
-            fold) + '.txt'
     elif task=='COVIDN2':
         METADATA_TRAIN = dirinfo + task + '/sharefiles/count_w_metadata.N2.barcode.label_random' + str(random) + '_train' + str(
             fold) + '.txt'

@@ -1,7 +1,6 @@
 import numpy as np
 import keras
 import util
-import pandas as pd
 
 
 from BREASTfileinfo import readFilereadcount_BREAST,readFilereadcount_BREASTunmapped,\
