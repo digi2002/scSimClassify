@@ -1,6 +1,6 @@
 # scSimClassify
 
-This repository contains a Python implementation of scSimClassify as
+This repository contains a Python implementation of scSimClassify.
 
 Four major modules are included:
 
@@ -35,7 +35,7 @@ Four classification methods are provided in this module.
 
 
 ## Dataset description
-Cell labels in the experiments are provided.
+Cell labels and examples of gene expression features in the experiments are provided.
 
 ## Usage instruction
 Please modify the path to use the modules.
