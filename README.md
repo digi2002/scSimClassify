@@ -1,4 +1,11 @@
-# scSimClassify
+# A reference-free approach for cell type classification with scRNA-seq
+by Qi Sun (sunq0810@gmail.com), Yifan Peng and Jinze Liu
+
+## Overview
+
+Python implementation of our paper "A reference-free approach for cell type classification with scRNA-seq"
+
+Qi Sun, Yifan Peng, Jinze Liu, “A Reference-free Approach for Cell Type Classification with scRNA-seq”, 2021, iScience 24 (8), 102855
 
 This repository contains a Python implementation of scSimClassify.
 
@@ -11,6 +18,20 @@ Four major modules are included:
 - Cell matrix generation module.
 
 - Classification module.
+
+## Citation
+Please cite our paper if you use this code in your research:
+@article{sun2021reference,
+  title={A reference-free approach for cell type classification with scRNA-seq},
+  author={Sun, Qi and Peng, Yifan and Liu, Jinze},
+  journal={Iscience},
+  volume={24},
+  number={8},
+  pages={102855},
+  year={2021},
+  publisher={Elsevier}
+}
+
 
 ## Prerequisite
 
